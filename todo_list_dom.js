@@ -1,3 +1,5 @@
+
+
 const container = document.getElementById("container")// container todo list
 const inputTodo = document.getElementById("inputTodo")// input dari user
 const submitButton = document.getElementById("submitButton")// tombol submit
@@ -10,7 +12,7 @@ submitButton.addEventListener("click", add)
 inputSearch.addEventListener("keyup", search)
 
 // Array of object data todo list
-let todos = []
+let todos = JSON.parse(localStorage.todos) || []
 
 function add() {
     let description = inputTodo.value
@@ -73,6 +75,10 @@ function search() {
     }
 
 }
+
+window.onbeforeunload = function() {
+    localStorage.todos = JSON.stringify(todos)
+};
 
 function dynamicSearch() {
     let result = todos.filter(
