@@ -56,7 +56,34 @@ function remove(index) {
 function search() {
     let result = todos.filter(
         function (todo) {
-            return todo["description"].toLowerCase().includes(inputSearch.value.toLowerCase())
+            return todo["description"].toLowerCase() === inputSearch.value.toLowerCase()
+        }
+    )
+    if (inputSearch.value === "") {
+        display()
+    } else {
+        let todoList = ""
+        result.forEach(function (todo, index) {
+            todoList = todoList + `<div onDblclick="prepareUpdate(${index})" class="todo">
+                                        <span>${todo.description}</span>   
+                                        <span onClick="remove(${index})">X</span>
+                                    </div>`
+        })
+        container.innerHTML = todoList
+    }
+
+}
+
+function dynamicSearch() {
+    let result = todos.filter(
+        function (todo) {
+            var ret = false
+            for (var detail in todo){
+                if(JSON.stringify(todo[detail]).toLocaleLowerCase().includes(inputSearch.value.toLowerCase())){
+                    ret = true
+                }
+            }
+            return ret
         }
     )
     if (inputSearch.value === "") {
