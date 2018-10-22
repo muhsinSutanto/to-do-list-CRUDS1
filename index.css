@@ -6,3 +6,16 @@
     border-width: 10px;
     padding: 10px;
 }
+
+#inputUpdate{
+    display: none;
+}
+
+#updateButton{
+    display: none;
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+}
