@@ -2,7 +2,7 @@ const container = document.getElementById("container")// container todo list
 const inputTodo = document.getElementById("inputTodo")// input dari user
 const submitButton = document.getElementById("submitButton")// tombol submit
 
-// Event Listener ----------------------------------------
+// Event Listener ---------------------------------------
 submitButton.addEventListener("click",add) 
 
 // Array of object data todo list
