@@ -12,7 +12,8 @@ submitButton.addEventListener("click", add)
 inputSearch.addEventListener("keyup", search)
 
 // Array of object data todo list
-let todos = JSON.parse(localStorage.todos) || []
+// insert local storange merubah array kedalam bentuk json
+let todos = JSON.parse(localStorage.todos || '[]')
 
 function add() {
     let description = inputTodo.value
@@ -76,6 +77,7 @@ function search() {
 
 }
 
+// local storage , ketika window di tutup... merubah data menjadi string lewat stringify membaca yang atas
 window.onbeforeunload = function() {
     localStorage.todos = JSON.stringify(todos)
 };
